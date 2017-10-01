@@ -1,0 +1,198 @@
+@import 'mixins';
+@import 'vars';
+
+@include defaultreset;
+
+body {
+	width: 100%;
+}
+
+h1 {
+	color: $main_red;
+	border-bottom: 1px solid $main_red;
+	text-align: center;
+	font-size: 2em;
+}
+
+h2 {
+	color: $text_color;
+	font-size: 1.2em;
+}
+
+h3 {
+	color: $main_red;
+	font-size: 1em;
+}
+
+p {
+	color: $text_color;
+	font-size: 1em;
+}
+
+.mainNavigation {
+	width: 100%;
+	line-height: 3em;
+	border: 0;
+	
+    ul {
+	    list-style: none;
+		text-align: center;
+		
+		li {
+			display: inline-block;
+			
+			a { 
+				text-decoration: none; 
+				color: $text_color;
+				padding-right: .9em;
+				padding-left: .9em;
+
+				&:hover {
+					color: $main_green;
+				}
+			}
+		}
+    }
+}
+
+.container {
+	width: 100%;
+}
+
+.glNaslov {
+	height: 29em;
+	background-image: url(../images/bkg1.jpg);
+	background-position: left top;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	
+	.glNas {
+		text-align: center;
+		margin: 10em 2.5em;
+	}	
+}
+
+.services {
+	margin-top: .7em;
+	text-align: center;
+	
+	.services_container {
+		margin: .7em 2.5em;
+	     
+	    .second {
+	    	margin-top: 1em;
+	    	text-align: justify;
+	    }
+
+	    div.boxes {
+	    	div {
+	    		border: .1em solid $main_green;
+	    		margin: 1em auto;
+	    		padding: 1em 3em;
+
+	    		& + & {
+	    			margin-left: 1em;
+	    		}
+
+	    		img {
+	    			border-radius: 50%;
+	    			margin: 1em auto;
+	    		}
+	    	}
+	    }
+	}
+}
+
+.contact {
+	margin: .7em 2.5em;
+	color: $main_red;
+	
+	.contactForm {
+		margin-top: .7em;
+
+/*		#imefld, #emailfld, #msgfld {
+						margin-bottom: 1em;
+
+		}*/
+		
+		.contactInput {
+			float: right;
+			margin-right: 1em;
+		}
+	}
+
+	.img_container {
+		display: none;
+	}
+	
+	
+}
+
+footer {
+	background-color: $main_green;
+	text-align: center;
+	line-height: 1.3em;
+	
+	p {
+		font-size: .7em;
+		color: white;
+		
+	}
+}
+
+@media only screen and (min-width: 750px){
+	.container {
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	.services_container {
+		width: 80%;
+		margin: 1em auto!important;
+		
+		.second {
+		    @include column-count;
+	    }
+	}
+	
+	.glNaslov {
+		background-position: center top;
+		
+		.glNas {
+			width: 50%;	
+			margin: 11em auto;
+		}
+	}
+}
+
+@media only screen and (min-width: 1170px){
+	.glNaslov {
+		.glNas {
+			width: 50%;
+		}
+	}
+
+	.contact {
+		width: 80%;
+		margin: 1em auto!important;
+		height: 20em;
+
+	    .contactForm {
+	    	float: left;
+	        width: 50%;
+        }
+	
+	    .img_container {
+	    	float: right;
+		    display: inline!important;
+		    width: 50%;
+	    }
+    }
+
+	div.boxes {
+	    div {
+	    	display: inline-block;
+	    	width: 33%;
+	    }
+	}
+}
